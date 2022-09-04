@@ -14,7 +14,7 @@ int main()
     std::cin >> n;
     std::vector<int> robots(n);
     std::cout << "Complete the list of robots:\n";
-    for (int i = 0; i < robots.size(); i++)
+    for (int i = 0; i < n; i++)
     {
         std::cin >> robots[i];
     }
@@ -32,6 +32,7 @@ int main()
             std::cout << robots[i] << " ";
 
         }
+        buyers--;
     }
     
 
@@ -39,15 +40,17 @@ int main()
 
 std::vector<int> bye_robot(std::vector<int> robots, int robotIndex, int n)
 {
-    std::vector<int> vec2 (n - 1);
+    std::vector<int> vec2 (n);
+    int temp = robots[n];
     int i = 0;
     for(; i < robotIndex; i++)
     {
         vec2[i] = robots[i];
     }
-    for (; i < robots.size(); i++)
+    for (; i < n; i++)
     {
-        vec2[i] = robots[i - 1];
+        vec2[i] = robots[i + 1];
     }
+    
     return vec2;
 }
